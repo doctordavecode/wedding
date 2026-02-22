@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#f7f2ee" />
+  <title>電子喜帖</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Background music: replace assets/music.mp3 with your own file. -->
+  <audio id="bgm" preload="auto" loop>
+    <source src="assets/music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Loading / first screen: Envelope -->
+  <main id="app" class="app">
+    <section id="cover" class="cover" aria-label="封面">
+      <div class="envelope" aria-hidden="false">
+        <div class="env-shadow"></div>
+        <div class="env-back"></div>
+        <div class="env-paper" id="paper">
+          <div class="paper-hint">
+            <div class="hint-title">電子喜帖</div>
+            <div class="hint-sub">點擊封蠟開啟</div>
+          </div>
+        </div>
+        <div class="env-front"></div>
+        <button id="sealBtn" class="seal" aria-label="點擊開啟">
+          <img src="assets/seal.png" alt="封蠟" />
+          <span class="seal-text">點擊</span>
+        </button>
+        <div class="env-flap" aria-hidden="true"></div>
+      </div>
+
+      <div class="cover-footer">
+        <button id="skipBtn" class="ghost-btn" type="button">直接進入</button>
+        <button id="muteBtn" class="ghost-btn" type="button" aria-pressed="false">音樂：關</button>
+      </div>
+    </section>
+
+    <!-- Invitation pages (images) -->
+    <section id="pages" class="pages" aria-label="內容" hidden>
+      <header class="topbar">
+        <button id="backBtn" class="icon-btn" type="button" aria-label="返回封面">←</button>
+        <div class="topbar-title">Wedding Invitation</div>
+        <button id="musicBtn" class="icon-btn" type="button" aria-label="音樂" aria-pressed="false">♫</button>
+      </header>
+
+      <div class="snap">
+        <!-- Page 1 -->
+        <article class="page" id="p1">
+          <img class="page-img" src="assets/page2.png" alt="喜帖資訊" loading="eager" />
+        </article>
+
+        <!-- Page 2 -->
+        <article class="page" id="p2">
+          <img class="page-img" src="assets/page4.png" alt="交通資訊" loading="lazy" />
+        </article>
+
+        <!-- Placeholder page 3 (optional) -->
+        <article class="page placeholder" id="p3">
+          <div class="placeholder-card">
+            <h2>可加更多頁</h2>
+            <p>把圖片放進 <code>assets/</code>，再到 <code>index.html</code> 複製一段 <code>&lt;article class="page"&gt;</code> 就可以新增頁面。</p>
+            <div class="placeholder-actions">
+              <button id="scrollTopBtn" class="primary-btn" type="button">回到第一頁</button>
+              <a class="primary-btn" href="#" id="shareBtn" role="button">複製分享連結</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <nav class="dots" aria-label="頁面導覽">
+        <button class="dot is-active" data-target="#p1" aria-label="第 1 頁"></button>
+        <button class="dot" data-target="#p2" aria-label="第 2 頁"></button>
+        <button class="dot" data-target="#p3" aria-label="第 3 頁"></button>
+      </nav>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
